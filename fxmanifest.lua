@@ -9,6 +9,7 @@ version '1.0.0'
 loadscreen_manual_shutdown "yes"
 loadscreen 'html/index.html'
 loadscreen_cursor 'yes'
+
 files {
     'html/*.html',
     'html/*.js',
