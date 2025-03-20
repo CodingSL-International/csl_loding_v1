@@ -68,18 +68,68 @@ body
 }
 
 .video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* The YouTube player will fill the container */
+#videoFrame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.videoOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: transparent;
+}
+
+.imageSlider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+  transition: opacity 0.5s ease;
+}
+
+/* Each slide occupies the full container */
+.imageSlider .slide {
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: -99;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Active slide is visible */
+.imageSlider .slide.active {
+  opacity: 1;
+}
+
+/* Fade-out class to hide the slider once video loads */
+.imageSlider.fade-out {
+  opacity: 0;
+}
+
+/* Ensure images fill the slide */
+.imageSlider .slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .discord {
@@ -116,15 +166,6 @@ body
         transform: rotateY(360deg);
     }
 }
-
-.videoOverlay { 
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%; 
-    z-index: 2; 
-    background: transparent; }
 
 .Shape{
     z-index: 2; 

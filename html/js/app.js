@@ -53,11 +53,53 @@ document.addEventListener("DOMContentLoaded", function() {
     } 
 });
 
-var videoIDs = videoids;
 
-var randomIndex = Math.floor(Math.random() * videoIDs.length);
-var selectedVideo = videoIDs[randomIndex];
+      // Called when the YouTube player is ready.
+      function videoLoaded(event) {
+        var slider = document.getElementById("imageSlider");
+        slider.classList.add("fade-out");
+        // Remove the slider after the fade-out transition.
+        setTimeout(function () {
+          slider.style.display = "none";
+        }, 500);
+      }
 
-var embedURL = "https://www.youtube.com/embed/" + selectedVideo + "?autoplay=1" + "&mute=1" + "&controls=0" + "&rel=0" + "&modestbranding=1" + "&loop=1" + "&playlist=" + selectedVideo + "&disablekb=1" + "&fs=0" + "&showinfo=0";
+      // Optional: handle state changes if needed.
+      function onPlayerStateChange(event) {
+        // You can use event.data to handle different player states.
+      }
 
-document.getElementById('videoFrame').src = embedURL;
+      // Randomize the order of slides in the image slider.
+      (function () {
+        var sliderContainer = document.getElementById("imageSlider");
+        var slides = Array.from(sliderContainer.getElementsByClassName("slide"));
+
+        // Fisher-Yates shuffle
+        function shuffle(array) {
+          for (let i = array.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+          }
+          return array;
+        }
+        slides = shuffle(slides);
+
+        // Clear container and append slides in the new order.
+        sliderContainer.innerHTML = "";
+        slides.forEach(function (slide, index) {
+          if (index === 0) {
+            slide.classList.add("active");
+          } else {
+            slide.classList.remove("active");
+          }
+          sliderContainer.appendChild(slide);
+        });
+
+        // Automatic slide transition every 3 seconds.
+        var currentSlide = 0;
+        setInterval(function nextSlide() {
+          slides[currentSlide].classList.remove("active");
+          currentSlide = (currentSlide + 1) % slides.length;
+          slides[currentSlide].classList.add("active");
+        }, 3000);
+      })();
