@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta id="viewport" name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link rel="stylesheet" type="text/css" href="css/styles.css" />
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css" />
+        <link href="https://cdn.jsdelivr.net/npm/quasar@2.1.0/dist/quasar.prod.css" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet" type="text/css" />
+        <title>Codingsl - Loading Screen</title>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet">
+    </head>
+
+    <body>
+        <!-- <div class="video-background">
+            <iframe class="videoContainer__video" height="100%" width="180%" src="https://www.youtube.com/embed/0hapZd8KPDg?controls=0&amp;showinfo=0&amp;rel=0&amp;autoplay=1&amp;loop=2&amp;mute=1" frameborder="0"></iframe>
+        </div> -->
+
+        <div class="video-background">
+            <iframe id="videoFrame" class="videoContainer__video" height="100%" width="180%" frameborder="0"></iframe>
+            <div class="videoOverlay"></div>
+        </div>
+
+        <div class="typing_line">
+            <a class="multiText"></a> 
+        </div>
+        
+        <div class="servername"> 
+            <a class="maintext" id="mainname"></a> 
+            <a class="maintext_2"></a> 
+        </div>
+        <div class="servername_shadow"> 
+            <a class="maintext_shadow"></a> 
+            <a class="maintext_2shadow"></a>
+        </div>
+
+        <div class="Shape">
+            <div class="shapein">
+                <img class="slidem" src="assest/img/logo2.png" height="80%">
+            </div>
+            <div>
+                <div class="ShapeStyle"></div>
+                <div class="ShapeStylein">
+                    <a href="/" class="discord">Discord Server</a>
+                    <br><br>
+                    <a class="musicbtn">Music is on/off press <font color="#ff5733"><b>[E]</b></font> button</a>
+                    <br><br>
+                    <span id="footer-text"></span>
+                </div>
+            </div>
+        </div>
+        <div id='stars'></div>
+        <div id='stars2'></div>
+        <div id='stars3'></div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+        <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-73378277-10'); </script>
+        <audio id="music" src="assest/music/music.mp3" autoplay="true" hidden="true" loop="true" />
+        <script src="config.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>
